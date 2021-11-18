@@ -37,7 +37,8 @@ const deleteTodoFun = (req, res) => {
 //update name
 const updateTodoFun = (req, res) => {
   const { id, name } = req.body;
-  todosModel.updateOne({ id: id }, { name: name }, function (err) {     //id?
+  todosModel.updateOne({ id: id }, { name: name }, function (err) {
+    //id?
     if (err) return handleError(err);
   });
   todosModel
@@ -62,4 +63,20 @@ const readFunc = (req, res) => {
     });
 };
 
-module.exports = { createTodoFun, readFunc, deleteTodoFun, updateTodoFun };
+//get all todos for 1 user
+// const readTFunc = (req, res) => {
+//   const { name } = req.body;
+//   todosModel.find({ user: { name: name} }).then((result) => {
+//       res.send(result);
+//     }).catch((err) => {
+//       res.send(err);
+//     });
+// };
+
+module.exports = {
+  createTodoFun,
+  readFunc,
+  deleteTodoFun,
+  updateTodoFun,
+  // readTFunc,
+};

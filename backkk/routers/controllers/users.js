@@ -18,10 +18,10 @@ const createUserFun = (req, res) => {
     });
 };
 
-//delete
+//delete r
 const deleteuserFun = (req, res) => {
   const id = req.params.id;
-  usersModel.deleteOne({ id }, function (err) {
+  usersModel.deleteOne({ _id :id  }, function (err) {
     if (err) return handleError(err);
   });
   usersModel
